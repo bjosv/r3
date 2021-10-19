@@ -21,7 +21,10 @@ jobs:
     - name: Run tests
       run: make check
     - name: Upload coverage
-      if: github.repository == 'c9s/r3'
+      # if: github.repository == 'c9s/r3'
+      if: github.repository == 'bjosv/r3'
+      env:
+        COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
       run: coveralls --exclude php
 
   cmake:
